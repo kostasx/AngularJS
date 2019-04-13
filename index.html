@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,21 +14,11 @@
         <section class="row">
             <div class="col-6 border rounded p-5 bg-light">
                 <label for="username">Enter Username:</label>
-                <input id="username" type="text" placeholder="Username">
-                <span id="output"></span>
+                <input ng-model="username" type="text" placeholder="Username">
+                <span>{{ username }}</span>
             </div>
         </section>
     </div>
-    <script>
-        let input = document.querySelector( "#username" );
-        
-        input.addEventListener( "keyup", handleKeyUp );
 
-        function handleKeyUp( event ){
-
-            document.querySelector( "#output" ).innerHTML = event.target.value;
-
-        }
-    </script>
 </body>
 </html>
