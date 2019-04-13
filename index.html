@@ -13,11 +13,9 @@
     <div class="container mt-5">
         <section class="row">
             <div class="col-6 border rounded p-5 bg-light">
-                <label for="username">Enter Username:</label><br>
-                <input ng-model="username" type="text" placeholder="Username"><br>
-                <input ng-model="username" type="text" placeholder="Username"><br>
-                <input ng-model="username" type="text" placeholder="Username"><br>
-                <span>{{ username }}</span>
+                <input ng-model="first" type="text" placeholder="First Name"><br>
+                <input ng-model="last" type="text" placeholder="Last Name"><br>
+                <span>Hello {{ first }} {{ last }}!</span>
             </div>
         </section>
     </div>
