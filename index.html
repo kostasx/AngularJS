@@ -18,6 +18,16 @@
             </div>
         </section>
     </div>
+    <script>
+        let input = document.querySelector( "#username" );
+        
+        input.addEventListener( "keyup", handleKeyUp );
 
+        function handleKeyUp( event ){
+
+            console.log( event.target.value );
+
+        }
+    </script>
 </body>
 </html>
