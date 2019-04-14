@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="App">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-    
+
+<body ng-controller="NameCtrl">
+
     <div class="container mt-5">
         <section class="row">
             <div class="col-6 border rounded p-5 bg-light">
@@ -20,5 +22,20 @@
         </section>
     </div>
 
+    <script>
+        //        angular.module( NAME, [ REQUIRED ] ) 
+        let App = angular.module( 'App', [] );
+
+        App.controller( 'NameCtrl', ['$scope', function( $scope ) {
+
+            $scope.first = 'Kostas';
+
+            $scope.last = 'Minaidis';
+
+        }]);
+
+    </script>
+
 </body>
+
 </html>
