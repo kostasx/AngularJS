@@ -27,7 +27,7 @@
 
             <div class="col-6 border rounded p-5 bg-light">
                 <ul>
-                    <li ng-repeat="name in names">{{ name }}</li>
+                    <li ng-repeat="name in names track by $index">{{ name }}</li>
                 </ul>
 
             </div>
