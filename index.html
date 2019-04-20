@@ -16,11 +16,12 @@
         <section class="row">
             <div class="col-6 border rounded p-5 bg-light">
 
-                <input ng-model="first" type="text" placeholder="First Name"><br>
+                <form ng-submit="addToList()">
 
-                <input ng-model="last" type="text" placeholder="Last Name"><br>
+                    <input type="text" ng-model="newEntry">
+                    <input type="submit" value="Add to List">
 
-                <span>Hello {{ first }} {{ last }}!</span>
+                </form>
 
             </div>
 
@@ -39,9 +40,10 @@
 
         App.controller( 'NameCtrl', ['$scope', '$timeout', function( $scope, $timeout ) {
 
-            $scope.first = 'Kostas';
-
-            $scope.last = 'Minaidis';
+            $scope.addToList = function(){
+                $scope.names.push( $scope.newEntry );
+                $scope.newEntry = "";
+            }
 
             // .$watch -> similar to .addEventListener( "submit", CALLBACK )
             $scope.$watch( 'last', watch );
@@ -53,7 +55,6 @@
             }
 
             $timeout(function(){
-                $scope.last = "Smith";
                 console.log( "2 seconds passed. Has $scope.last been updated?" );
             }, 2000 );
 
