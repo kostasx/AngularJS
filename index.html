@@ -15,9 +15,13 @@
     <div class="container mt-5">
         <section class="row">
             <div class="col-6 border rounded p-5 bg-light">
+
                 <input ng-model="first" type="text" placeholder="First Name"><br>
+
                 <input ng-model="last" type="text" placeholder="Last Name"><br>
+
                 <span>Hello {{ first }} {{ last }}!</span>
+
             </div>
         </section>
     </div>
@@ -31,6 +35,16 @@
             $scope.first = 'Kostas';
 
             $scope.last = 'Minaidis';
+
+            // .$watch -> similar to .addEventListener( "submit", CALLBACK )
+            $scope.$watch( 'last', watch );
+
+            function watch( newValue, oldValue ){
+
+                console.log( newValue, oldValue );
+
+            }
+
 
         }]);
 
