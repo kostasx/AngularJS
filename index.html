@@ -30,7 +30,7 @@
         //        angular.module( NAME, [ REQUIRED ] ) 
         let App = angular.module( 'App', [] );
 
-        App.controller( 'NameCtrl', ['$scope', function( $scope ) {
+        App.controller( 'NameCtrl', ['$scope', '$timeout', function( $scope, $timeout ) {
 
             $scope.first = 'Kostas';
 
@@ -45,13 +45,10 @@
 
             }
 
-            // Updating the $scope
-            setTimeout( function(){
+            $timeout(function(){
                 $scope.last = "Smith";
                 console.log( "2 seconds passed. Has $scope.last been updated?" );
-                $scope.$apply();
             }, 2000 );
-
 
         }]);
 
