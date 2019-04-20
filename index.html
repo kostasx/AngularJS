@@ -49,6 +49,7 @@
             setTimeout( function(){
                 $scope.last = "Smith";
                 console.log( "2 seconds passed. Has $scope.last been updated?" );
+                $scope.$apply();
             }, 2000 );
 
 
