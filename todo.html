@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+</head>
+<body ng-app="Todo">
+    
+    <div class="container shadow bg-light mt-5 border" ng-controller="TodoCtrl">
+        <div class="row">
+
+            <!-- TITLE -->
+            <div class="col-12 p-4">
+                <h2>Todo List App</h2>
+            </div>
+
+            <!-- INPUT -->
+            <div class="col-12 mb-4">
+                <form ng-submit="addTask()">
+                    <input type="text" class="p-1" placeholder="Task" ng-model="newTodo">
+                    <button class="btn btn-success rounded-0">Add Task</button>
+                    <button type="button" ng-click="clear()" class="btn btn-danger rounded-0">Clear Completed</button>
+                </form>
+            </div>
+
+            <!-- LIST -->
+            <div class="col-6">
+                <ul class="list-unstyled">
+                    <li 
+                        class="border shadow p-3" 
+                        ng-repeat="todo in todos" 
+                        ng-class="todo.done ? 'bg-success text-white-50' : 'bg-info text-white'">
+                        
+                        <input type="checkbox" ng-model="todo.done">
+                        <span class="ml-2">{{ todo.task }}</span>
+                        <a href="" class="btn btn-danger rounded-0 ml-3" ng-click="remove(todo)">Remove</a>
+                    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>  
+
+    <script>
+
+        console.log( "Hello" );
+
+        const App = angular.module( "Todo", [] );
+
+        App.controller( "TodoCtrl", [ '$scope', function( $scope ){
+
+            // console.log( $scope ); // Asynchronous
+            $scope.todos = [
+                {
+                    task: "Buy Milk", done: false
+                },
+                { 
+                    task: "Buy Sugar", done: true
+                }
+            ];
+
+            $scope.addTask = function(){
+                $scope.todos.push({
+                    task: $scope.newTodo,
+                    done: false
+                });
+                $scope.newTodo = "";
+            }
+
+            $scope.clear = function(){
+                $scope.todos = $scope.todos.filter( function( todo ){
+                    return todo.done !== true;
+                });
+            }
+
+            $scope.remove = function( todo ){
+                let index = $scope.todos.indexOf( todo );
+                $scope.todos.splice( index, 1 );
+            }
+
+        }]);
+
+        console.log( "Bye" );
+
+    </script>
+
+</body>
+</html>
