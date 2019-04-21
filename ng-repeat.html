@@ -25,13 +25,23 @@
                     <table class="bg-light w-100">
                         <thead class="bg-dark text-white">
                             <tr>
-                                <td class="p-3 border border-light" ng-click="filterKeyword='name'">Country</td>
-                                <td class="p-3 border border-light" ng-click="filterKeyword='capital'">Capital</td>
-                                <td class="p-3 border border-light" ng-click="filterKeyword='-population'">Population</td>
+                                <td 
+                                class="p-3 border border-light" ng-click="filterKeyword='name';reverse=!reverse">
+                                    <div class="d-flex justify-content-between">Country <i class="fas fa-sort"></i>
+                                    </div>
+                                </td>
+                                <td 
+                                class="p-3 border border-light" ng-click="filterKeyword='capital';reverse=!reverse">
+                                    <div class="d-flex justify-content-between">Capital <i class="fas fa-sort"></i></div>
+                                </td>
+                                <td 
+                                class="p-3 border border-light" ng-click="filterKeyword='population'; reverse=!reverse">
+                                    <div class="d-flex justify-content-between">Population <i class="fas fa-sort"></i></div>
+                                </td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="country in countries | filter:selected | orderBy:filterKeyword ">
+                            <tr ng-repeat="country in countries | filter:selected | orderBy:filterKeyword:reverse ">
                                 <td class="p-3 border border-dark">{{ country.name | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.capital | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.population | number }}</td>
@@ -50,6 +60,8 @@
                 const URL = "https://api.myjson.com/bins/r1mlg";
 
                 $scope.filterKeyword = 'population';
+
+                $scope.reverse = true;
 
                 $http.get( URL ).then(function(response){
 
