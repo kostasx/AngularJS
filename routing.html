@@ -20,6 +20,7 @@
                 <a href="#/!">Main</a>
                 <a href="#!first">First</a>
                 <a href="#!second">Second</a>
+                <a href="#!/product">Product</a>
             </div>
         </section>
 
@@ -49,7 +50,18 @@
                 controller: "MainCtrl"
              })
             .when("/first", { templateUrl : "routing-first.html" })
-            .when("/second", { templateUrl : "routing-second.html" });
+            .when("/second", { templateUrl : "routing-second.html" })
+            .when("/:product", { 
+                templateUrl : "routing-product.html",
+                controller: "ProductCtrl" 
+            });
+
+        });
+
+        App.controller( "ProductCtrl", function( $scope, $routeParams ){
+
+            console.log( "Product Controller", $routeParams );
+            $scope.product = $routeParams.product;
 
         });
 
