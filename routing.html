@@ -20,7 +20,7 @@
                 <a href="#/!">Main</a>
                 <a href="#!first">First</a>
                 <a href="#!second">Second</a>
-                <a href="#!/product">Product</a>
+                <a href="#!/greece">Country</a>
             </div>
         </section>
 
@@ -51,17 +51,21 @@
              })
             .when("/first", { templateUrl : "routing-first.html" })
             .when("/second", { templateUrl : "routing-second.html" })
-            .when("/:product", { 
-                templateUrl : "routing-product.html",
-                controller: "ProductCtrl" 
+            .when("/:country", { 
+                templateUrl : "routing-country.html",
+                controller: "CountryCtrl" 
             });
 
         });
 
-        App.controller( "ProductCtrl", function( $scope, $routeParams ){
+        App.controller( "CountryCtrl", function( $scope, $routeParams, $http ){
 
             console.log( "Product Controller", $routeParams );
-            $scope.product = $routeParams.product;
+            $http.get( "http://restcountries.eu/rest/v2/name/" + $routeParams.country )
+            .then( function( response ){
+                $scope.countryInfo = response.data[0];
+                console.log( response.data[0] );
+            });
 
         });
 
