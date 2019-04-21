@@ -24,9 +24,9 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="country in countries">
-                                <td class="p-3 border border-dark">Greece</td>
-                                <td class="p-3 border border-dark">Athens</td>
-                                <td class="p-3 border border-dark">10000000</td>
+                                <td class="p-3 border border-dark">{{ country.name }}</td>
+                                <td class="p-3 border border-dark">{{ country.capital }}</td>
+                                <td class="p-3 border border-dark">{{ country.population }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -39,7 +39,11 @@
 
             App.controller( "CountriesCtrl", function( $scope, $http ){
 
-                console.log( $scope, $http );
+                $scope.countries = [
+                { "name":"Greece", "capital":"Athens", "population":10858018 },
+                { "name":"Albania", "capital":"Tirana", "population": 2886026 },
+                { "name":"Italy", "capital":"Rome", "population": 60665551 }
+            ];
 
             });
         </script>
