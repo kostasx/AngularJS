@@ -30,7 +30,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="country in countries | filter:selected | orderBy:population ">
+                            <tr ng-repeat="country in countries | filter:selected | orderBy:population:true ">
                                 <td class="p-3 border border-dark">{{ country.name | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.capital | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.population | number }}</td>
