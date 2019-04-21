@@ -24,9 +24,9 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="country in countries">
-                                <td class="p-3 border border-dark">{{ country.name }}</td>
-                                <td class="p-3 border border-dark">{{ country.capital }}</td>
-                                <td class="p-3 border border-dark">{{ country.population }}</td>
+                                <td class="p-3 border border-dark">{{ country.name | uppercase }}</td>
+                                <td class="p-3 border border-dark">{{ country.capital | uppercase }}</td>
+                                <td class="p-3 border border-dark">{{ country.population | number }}</td>
                             </tr>
                         </tbody>
                     </table>
