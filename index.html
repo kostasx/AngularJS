@@ -32,6 +32,11 @@
 
             </div>
         </section>
+        <section class="row mt-4">
+            <div class="col-6 p-4 text-white bg-info" ng-init="money=[ 500, 400, 180 ]">
+                <p ng-repeat="m in money">{{ m | currency }}</p>
+            </div>
+        </section>
     </div>
 
     <script>
