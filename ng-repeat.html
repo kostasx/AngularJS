@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
 </head>
-<body>
+<body ng-app="Countries">
 
     <!-- .container>.row>.col>table>thead>td*3^tbody>td*3 -->
-    <div class="container bg-warning shadow mt-5 p-5">
+    <div class="container bg-warning shadow mt-5 p-5" ng-controller="CountriesCtrl">
             <div class="row">
                 <div class="col">
                     <table class="bg-light w-100">
@@ -33,6 +33,16 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            const App = angular.module( "Countries", [] );
+
+            App.controller( "CountriesCtrl", function( $scope, $http ){
+
+                console.log( $scope, $http );
+
+            });
+        </script>
 
 </body>
 </html>
