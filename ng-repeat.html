@@ -7,6 +7,7 @@
     <title>AngularJS | ng-repeate & fetching using $http service</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body ng-app="Countries">
 
@@ -24,13 +25,13 @@
                     <table class="bg-light w-100">
                         <thead class="bg-dark text-white">
                             <tr>
-                                <td class="p-3 border border-light">Country</td>
-                                <td class="p-3 border border-light">Capital</td>
-                                <td class="p-3 border border-light">Population</td>
+                                <td class="p-3 border border-light" ng-click="filterKeyword='name'">Country</td>
+                                <td class="p-3 border border-light" ng-click="filterKeyword='capital'">Capital</td>
+                                <td class="p-3 border border-light" ng-click="filterKeyword='-population'">Population</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="country in countries | filter:selected | orderBy:population:true ">
+                            <tr ng-repeat="country in countries | filter:selected | orderBy:filterKeyword ">
                                 <td class="p-3 border border-dark">{{ country.name | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.capital | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.population | number }}</td>
@@ -47,6 +48,8 @@
             App.controller( "CountriesCtrl", function( $scope, $http ){
 
                 const URL = "https://api.myjson.com/bins/r1mlg";
+
+                $scope.filterKeyword = 'population';
 
                 $http.get( URL ).then(function(response){
 
