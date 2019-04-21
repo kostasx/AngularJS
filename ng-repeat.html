@@ -10,7 +10,29 @@
 </head>
 <body>
 
-        <!-- .container>.row>.col>table>thead>td*3^tbody>td*3 -->
+    <!-- .container>.row>.col>table>thead>td*3^tbody>td*3 -->
+    <div class="container bg-warning shadow mt-5 p-5">
+            <div class="row">
+                <div class="col">
+                    <table class="bg-light w-100">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <td class="p-3 border border-light">Country</td>
+                                <td class="p-3 border border-light">Capital</td>
+                                <td class="p-3 border border-light">Population</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="country in countries">
+                                <td class="p-3 border border-dark">Greece</td>
+                                <td class="p-3 border border-dark">Athens</td>
+                                <td class="p-3 border border-dark">10000000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
 </body>
 </html>
