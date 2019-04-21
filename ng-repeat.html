@@ -38,6 +38,9 @@
                                 class="p-3 border border-light" ng-click="filterKeyword='population'; reverse=!reverse">
                                     <div class="d-flex justify-content-between">Population <i class="fas fa-sort"></i></div>
                                 </td>
+                                <td class="p-3 border border-light">
+                                    <div>Flag</div>
+                                </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,6 +48,9 @@
                                 <td class="p-3 border border-dark">{{ country.name | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.capital | uppercase }}</td>
                                 <td class="p-3 border border-dark">{{ country.population | number }}</td>
+                                <td class="p-3 border border-dark text-center">
+                                    <img class="img-fluid" width="100" src="{{ country.flag }}" alt="">
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -57,7 +63,7 @@
 
             App.controller( "CountriesCtrl", function( $scope, $http ){
 
-                const URL = "https://api.myjson.com/bins/r1mlg";
+                const URL = "https://api.myjson.com/bins/ud8x8";
 
                 $scope.filterKeyword = 'population';
 
