@@ -40,9 +40,23 @@
         App.config(function($routeProvider) {
 
             $routeProvider
-            .when( "/", { templateUrl : "routing-main.html" })
+            .when( "/", { 
+                template : `
+                    <h1>Main</h1>
+                    <h2>Subtitle</h2>
+                    <p>{{ value }}</p>
+                    `,
+                controller: "MainCtrl"
+             })
             .when("/first", { templateUrl : "routing-first.html" })
             .when("/second", { templateUrl : "routing-second.html" });
+
+        });
+
+        App.controller( "MainCtrl", function( $scope ){
+
+            console.log( "Main Controller" );
+            $scope.value = "Dynamic Content from $scope...";
 
         });
 
