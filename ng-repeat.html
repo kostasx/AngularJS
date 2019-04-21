@@ -39,11 +39,14 @@
 
             App.controller( "CountriesCtrl", function( $scope, $http ){
 
-                $scope.countries = [
-                { "name":"Greece", "capital":"Athens", "population":10858018 },
-                { "name":"Albania", "capital":"Tirana", "population": 2886026 },
-                { "name":"Italy", "capital":"Rome", "population": 60665551 }
-            ];
+                const URL = "https://api.myjson.com/bins/r1mlg";
+
+                $http.get( URL ).then(function(response){
+
+                    console.log( response.data );
+                    $scope.countries = response.data;
+
+                });
 
             });
         </script>
